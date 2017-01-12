@@ -13,8 +13,8 @@ bool esSolucion(int k, int nProds);
 int main() {
 	int casos, nSupers, nProds;
 	int compras[SUPRMAX][SUPRMAX];
-	int contador[SUPRMAX];
-	int sol = 0, res = 0;
+	int contador[SUPRMAX]; //lleva la cuenta de los productos en un mismo supermercado
+	int sol = 0, res = 0;  //sol es la solucion final. res son soluciones parciales, donde se van sumando los precios
 	bool ok = false;
 	int k = 0;
 
@@ -54,6 +54,7 @@ int main() {
 }
 
 
+//funcion principal vuelta atras
 void precio(int compras[SUPRMAX][SUPRMAX], int &sol, int &res, int k, int contador[], int nSupers, int nProds, bool &ok) {
 	for (int i = 0; i < nSupers; i++) {
 		if (esValida(i, contador, nProds)) {
@@ -75,6 +76,7 @@ void precio(int compras[SUPRMAX][SUPRMAX], int &sol, int &res, int k, int contad
 	}
 }
 
+//comprueba si el nodo actual (pos) cumple que no se hayan cogido más de 3 productos de ese supermercado
 bool esValida(int pos, int contador[], int nProds) {
 	bool ok = false;
 	
@@ -85,6 +87,7 @@ bool esValida(int pos, int contador[], int nProds) {
 	return ok;
 }
 
+//comprueba que k es el ultimo producto (ultima posicion) de la lista de la compra
 bool esSolucion(int k, int nProds) {
 	return k == nProds - 1;
 }
