@@ -1,4 +1,4 @@
-//Sergio Ulloa López
+//Sergio Ulloa LÃ³pez
 
 #include <iostream>
 using namespace std;
