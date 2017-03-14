@@ -1,3 +1,5 @@
+// Sergio Ulloa López
+
 // Bibliotecas
 #include <iostream>
 #include "Stack.h"
