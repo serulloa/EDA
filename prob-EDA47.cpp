@@ -1,3 +1,5 @@
+// Sergio Ulloa López
+
 // Bibliotecas
 #include <iostream>
 #include <string.h>
@@ -5,7 +7,7 @@
 using namespace std;
 
 
-// Declaraci�n funciones
+// Declaración funciones
 int procesa(List<int> &lista);
 
 
@@ -46,7 +48,7 @@ int main() {
 }
 
 
-// Definici�n funciones
+// Definición funciones
 int procesa(List<int> &lista) {
 	List<int>::Iterator it = lista.begin();
 	int suma = 0;
