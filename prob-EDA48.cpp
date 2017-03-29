@@ -1,4 +1,4 @@
-// Sergio Ulloa L�pez
+// Sergio Ulloa López
 
 // Bibliotecas
 #include <iostream>
@@ -6,7 +6,7 @@
 using namespace std;
 
 
-// Declaraci�n funciones
+// Declaración funciones
 void procesa(List<int> &res, List<int> lista1, List<int> lista2);
 
 
@@ -19,7 +19,7 @@ int main() {
 	char c;
 
 	cin >> casos;
-	cin.get(c);	// Cogemos el salto de l�nea correspondiente a los casos
+	cin.get(c);	// Cogemos el salto de línea correspondiente a los casos
 
 	while (casos > 0) {
 		lista1 = List<int>();
@@ -28,7 +28,7 @@ int main() {
 
 		cin.get(c);
 		while (c != '\n') {	// O(n)
-			cin.putback(c);	// Devolvemos el car�cter en caso de que no sea salto
+			cin.putback(c);	// Devolvemos el carácter en caso de que no sea salto
 			cin >> num;
 			lista1.push_back(num);
 			cin.get(c);
@@ -57,7 +57,7 @@ int main() {
 }
 
 
-// Definici�n funciones
+// Definición funciones
 void procesa(List<int> &res, List<int> lista1, List<int> lista2) {
 	List<int>::ConstIterator it1 = lista1.cbegin(), it2 = lista2.cbegin();
 
