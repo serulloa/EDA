@@ -1,14 +1,14 @@
 /**
 @file Cola.h
 
-Implementación del TAD Cola utilizando una
+Implementaciï¿½n del TAD Cola utilizando una
 lista enlazada de nodos.
 
 Estructura de Datos y Algoritmos
-Facultad de Informática
+Facultad de Informï¿½tica
 Universidad Complutense de Madrid
 
-(c) Marco Antonio Gómez Martín, 2012
+(c) Marco Antonio Gï¿½mez Martï¿½n, 2012
 */
 #ifndef __LINKED_LIST_QUEUE_H
 #define __LINKED_LIST_QUEUE_H
@@ -16,19 +16,19 @@ Universidad Complutense de Madrid
 #include "Exceptions.h"
 
 /**
-Implementación del TAD Cola utilizando una lista enlazada.
+Implementaciï¿½n del TAD Cola utilizando una lista enlazada.
 
 Las operaciones son:
 
 - EmptyQueue: -> Queue. Generadora implementada en el
-constructor sin parámetros.
+constructor sin parï¿½metros.
 - push_back: Queue, Elem -> Queue. Generadora
 - pop_front: Queue - -> Queue. Modificadora parcial.
 - front: Queue - -> Elem. Observadora parcial.
 - empty: Queue -> Bool. Observadora.
 - size: Queue -> Entero. Observadora.
 
-@author Marco Antonio Gómez Martín
+@author Marco Antonio Gï¿½mez Martï¿½n
 */
 template <class T>
 class Queue {
@@ -45,10 +45,10 @@ public:
 	}
 
 	/**
-	Añade un elemento en la parte trasera de la cola.
-	Operación generadora.
+	Aï¿½ade un elemento en la parte trasera de la cola.
+	Operaciï¿½n generadora.
 
-	@param elem Elemento a añadir.
+	@param elem Elemento a aï¿½adir.
 	*/
 	void push_back(const T &elem) {
 		Nodo *nuevo = new Nodo(elem, NULL);
@@ -56,8 +56,8 @@ public:
 		if (_ult != NULL)
 			_ult->_sig = nuevo;
 		_ult = nuevo;
-		// Si la cola estaba vacía, el primer elemento
-		// es el que acabamos de añadir
+		// Si la cola estaba vacï¿½a, el primer elemento
+		// es el que acabamos de aï¿½adir
 		if (_prim == NULL)
 			_prim = nuevo;
 		_numElems++;
@@ -65,8 +65,8 @@ public:
 
 	/**
 	Elimina el primer elemento de la cola.
-	Operación modificadora parcial, que falla si
-	la cola está vacía.
+	Operaciï¿½n modificadora parcial, que falla si
+	la cola estï¿½ vacï¿½a.
 
 	pop_front(Push_back(elem, EmptyQueue)) = EmptyQueue
 	pop_front(Push_back(elem, xs)) = push_back(elem, pop_front(xs)) si !empty(xs)
@@ -79,15 +79,15 @@ public:
 		_prim = _prim->_sig;
 		delete aBorrar;
 		--_numElems;
-		// Si la cola se quedó vacía, no hay
-		// último
+		// Si la cola se quedï¿½ vacï¿½a, no hay
+		// ï¿½ltimo
 		if (_prim == NULL)
 			_ult = NULL;
 	}
 
 	/**
-	Devuelve el primer elemento de la cola. Operación
-	observadora parcial, que falla si la cola está vacía.
+	Devuelve el primer elemento de la cola. Operaciï¿½n
+	observadora parcial, que falla si la cola estï¿½ vacï¿½a.
 
 	front(Push_back(elem, EmptyQueue)) = elem
 	front(Push_back(elem, xs)) = primero(xs) si !empty(xs)
@@ -102,31 +102,31 @@ public:
 	}
 
 	/**
-	Devuelve true si la cola no tiene ningún elemento.
+	Devuelve true si la cola no tiene ningï¿½n elemento.
 
 	empty(EmptyQueue) = true
 	empty(Push_back(elem, p)) = false
 
-	@return true si la cola no tiene ningún elemento.
+	@return true si la cola no tiene ningï¿½n elemento.
 	*/
 	bool empty() const {
 		return _prim == NULL;
 	}
 
 	/**
-	Devuelve el número de elementos que hay en la
+	Devuelve el nï¿½mero de elementos que hay en la
 	cola.
 	size(EmptyQueue) = 0
 	size(Push_back(elem, p)) = 1 + size(p)
 
-	@return Número de elementos.
+	@return Nï¿½mero de elementos.
 	*/
 	int size() const {
 		return _numElems;
 	}
 
 	// //
-	// MÉTODOS DE "FONTANERÍA" DE C++ QUE HACEN VERSÁTIL
+	// Mï¿½TODOS DE "FONTANERï¿½A" DE C++ QUE HACEN VERSï¿½TIL
 	// A LA CLASE
 	// //
 
@@ -135,7 +135,7 @@ public:
 		copia(other);
 	}
 
-	/** Operador de asignación */
+	/** Operador de asignaciï¿½n */
 	Queue<T> &operator=(const Queue<T> &other) {
 		if (this != &other) {
 			libera();
@@ -144,7 +144,7 @@ public:
 		return *this;
 	}
 
-	/** Operador de comparación. */
+	/** Operador de comparaciï¿½n. */
 	bool operator==(const Queue<T> &rhs) const {
 		if (_numElems != rhs._numElems)
 			return false;
@@ -166,17 +166,16 @@ public:
 
 	/*
 	* Parte de funciones propias
-	* 
-	* La función invierte(int n) consiste en conservar, en todo momento, el primer elemento de la cola y
-	* el primer elemento de la cola original, esté invertido o no. Por ejemplo, si tenemos una cola 
-	* {1, 2, 3, 4, 5}, en la primera iteración quedaría tal que {2, 1, 3, 4, 5} y, por lo tanto, la 
-	* variable primerNodo sería igual a 2 y nodo1 = 1.
-	* Así, el funcionamiento quedaría reducido a cambiar la posición de nodo1 y nodo2, luego hacer que
-	* nodo2 pase a ser el primer elemento de la cola y, por último, tomar como nuevo nodo2 el nodo siguiente 
+	*
+	* La funciÃ³n invierte(int n) consiste en conservar, en todo momento, el primer elemento de la cola y
+	* el primer elemento de la cola original, estÃ© invertido o no. Por ejemplo, si tenemos una cola
+	* {1, 2, 3, 4, 5}, en la primera iteraciÃ³n quedarÃ¡ tal que {2, 1, 3, 4, 5} y, por lo tanto, la
+	* variable primerNodo serÃ¡ igual a 2 y nodo1 = 1.
+	* AsÃ­, el funcionamiento quedarÃ¡ reducido a cambiar la posiciÃ³n de nodo1 y nodo2, luego hacer que
+	* nodo2 pase a ser el primer elemento de la cola y, por Ãºltimo, tomar como nuevo nodo2 el nodo siguiente
 	* a nodo1.
 	*/
-
-	void invierte(int n) {	// O(n-1) siendo n el número de elementos a invertir
+	void invierte(int n) {	// O(n-1) siendo n el nï¿½mero de elementos a invertir
 		if(_numElems > 1) {
 			Nodo *primerNodo = _prim;
 			Nodo *nodo1 = _prim;
@@ -202,6 +201,37 @@ public:
 
 			_prim = primerNodo;
 		}
+	}
+
+	/*
+	* La funciÃ³n colar() trata de buscar el nodo correspondiente al "pringao" y guarda el puntero en
+	* nodoPringao para luego enlazarlo con la cola "colegas" y volver a enlazar el Ãºltimo elemento de
+	* Ã©sta con el siguiente elemento a "pringao" correspondiete a la cola original, en el caso de que
+	* exista. Al final, se limpia la cola colegas manualmente para que no se borren los punteros que
+	* ahora forman parte de la cola original.
+	*/
+	void colar(Queue<int> &colegas, int pringao) {	// O(n) en el peor caso siendo n la longitud de la cola original
+		Nodo * nodoPringao = _prim;
+		Nodo * sigPringao = _prim;
+		bool encontrado = false, ultimo = false;
+
+		while (!encontrado && !ultimo) {	// El coste O(n) es debido a este bucle
+			if(nodoPringao->_elem == pringao) encontrado = true;
+			if(nodoPringao == _ult) ultimo = true;
+
+			if(!encontrado && !ultimo) nodoPringao = nodoPringao->_sig;
+		}
+
+		if (encontrado) {
+			if (!ultimo) sigPringao = nodoPringao->_sig;	// Sin embargo la operaciÃ³n de junta ambas colas es coste O(1), ya
+															// que simplemente se realizan 3 operaciones para enlazar los nodos.
+			nodoPringao->_sig = colegas._prim;
+			if (!ultimo) colegas._ult->_sig = sigPringao;
+		}
+
+		colegas._numElems = 0;
+		colegas._prim = NULL;
+		colegas._ult = NULL;
 	}
 
 protected:
@@ -235,8 +265,8 @@ private:
 
 	/**
 	Clase nodo que almacena internamente el elemento (de tipo T),
-	y un puntero al nodo siguiente, que podría ser NULL si
-	el nodo es el último de la lista enlazada.
+	y un puntero al nodo siguiente, que podrï¿½a ser NULL si
+	el nodo es el ï¿½ltimo de la lista enlazada.
 	*/
 	class Nodo {
 	public:
@@ -251,8 +281,8 @@ private:
 
 	/**
 	Elimina todos los nodos de la lista enlazada cuyo
-	primer nodo se pasa como parámetro.
-	Se admite que el nodo sea NULL (no habrá nada que
+	primer nodo se pasa como parï¿½metro.
+	Se admite que el nodo sea NULL (no habrï¿½ nada que
 	liberar).
 	*/
 	static void libera(Nodo *prim) {
@@ -266,10 +296,10 @@ private:
 	/** Puntero al primer elemento. */
 	Nodo *_prim;
 
-	/** Puntero al último elemento. */
+	/** Puntero al ï¿½ltimo elemento. */
 	Nodo *_ult;
 
-	/** Número de elementos */
+	/** Nï¿½mero de elementos */
 	int _numElems;
 };
 
